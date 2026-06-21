@@ -1,0 +1,26 @@
+{
+  "name": "damira-ai",
+  "displayName": "Damira AI — Network Engineering",
+  "description": "CCIE-level network troubleshooting, vendor docs, CVE lookup, config generation, and upgrade planning. Supports Cisco, Juniper, Arista, Palo Alto, Fortinet, and Nokia.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Terrence Battlehunt",
+    "email": "terrence@damiraai.com"
+  },
+  "keywords": [
+    "network",
+    "cisco",
+    "juniper",
+    "arista",
+    "palo-alto",
+    "fortinet",
+    "ccie",
+    "troubleshooting",
+    "ansible",
+    "automation",
+    "noc",
+    "bgp",
+    "ospf"
+  ],
+  "license": "MIT"
+}

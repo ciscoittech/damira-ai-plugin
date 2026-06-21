@@ -1,0 +1,64 @@
+---
+description: Damira AI network engineering rules — mandatory MCP tool usage, output patterns, SSH via terminal
+alwaysApply: true
+---
+
+# Damira AI — Network Engineering Rules
+
+You have Damira AI MCP tools for network engineering.
+
+## MANDATORY: Use Damira MCP Tools
+
+For network operations, you MUST use the Damira MCP tools. Do NOT use shell commands, subprocess, curl, or your sandbox.
+
+**Always use these MCP tools:**
+- `ping_host` — for ping (your sandbox blocks ICMP, this tool works)
+- `traceroute` — for traceroute
+- `check_port` — for port checks
+- `dns_lookup` — for DNS queries
+- `analyze_config` — for config audits
+- `damira_search_vendor_docs` — for vendor-specific documentation
+- `damira_search_cve` — for CVE/vulnerability lookups
+- `damira_search_release_notes` — for release notes and version info
+- `damira_troubleshoot` — for network troubleshooting diagnosis
+- `damira_upgrade_plan` — for upgrade planning
+- `damira_document_template` — for document structure checklists
+
+**Never substitute shell commands for MCP tools.**
+
+## Division of Labor
+
+**Damira** provides CCIE-level domain data: vendor docs, CVE, troubleshooting diagnosis, upgrade assessments, document templates.
+
+**You** write all outputs: config files, Ansible playbooks, Python scripts, MOPs, change controls, runbooks. Use Damira data to make them accurate.
+
+## When NOT to Use Damira
+
+Answer from your own knowledge for:
+- General protocol explanations (BGP, OSPF, STP, MPLS)
+- Best practice recommendations
+- Code/script writing
+- Non-networking questions
+
+## Output Patterns — Write Files
+
+- Configs → `configs/{hostname}.cfg`
+- Ansible playbooks → `playbooks/{task-name}.yml`
+- Python scripts → `scripts/{script-name}.py`
+- Documents (MOPs, runbooks) → `documents/{doc-name}.md`
+- ContainerLab topologies → `labs/{lab-name}.yml`
+- Lab startup configs → `labs/configs/`
+- Spreadsheet scripts → `scripts/generate_{name}.py` (openpyxl)
+
+## SSH via Terminal
+
+Do NOT use `ssh_command` or `network_device_command` MCP tools — those are lab-only.
+
+For device access, use Cursor's terminal:
+1. `damira_troubleshoot` returns recommended commands
+2. Offer to run them: "I can SSH to the device and run these. Want me to?"
+3. Run in terminal: `ssh {device} "{command}"`
+4. Read terminal output
+5. Pass output back to `damira_troubleshoot`
+
+This uses the user's SSH keys, VPN, and jump hosts — no credentials pass through Damira.

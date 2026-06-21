@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "damira": {
+      "command": "uvx",
+      "args": ["damira-mcp"],
+      "env": {
+        "DAMIRA_API_KEY": "${env:DAMIRA_API_KEY}"
+      }
+    }
+  }
+}
